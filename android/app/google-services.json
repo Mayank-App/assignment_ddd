@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "579345638440",
+    "project_id": "wheater-f7648",
+    "storage_bucket": "wheater-f7648.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579345638440:android:0f8201568483b65601811d",
+        "android_client_info": {
+          "package_name": "com.example.assignment_ddd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDF8IMp4AoNy41bsH1bQHT_6pdGVP54JSk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

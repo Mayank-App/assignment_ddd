@@ -6,7 +6,6 @@ import 'package:assignment_ddd/domain/reposistory/auth_reposistory.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../../../utils/routes/routes_name.dart';
 import '../../../utils/utils.dart';
 
 class SignupBloc extends Bloc<SignUpEvent,SignupState>{

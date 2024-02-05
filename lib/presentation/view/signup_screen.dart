@@ -2,6 +2,8 @@
 import 'package:assignment_ddd/applications/bloc/signup_bloc/signup_bloc.dart';
 import 'package:assignment_ddd/applications/bloc/signup_bloc/signup_event.dart';
 import 'package:assignment_ddd/applications/bloc/signup_bloc/signup_state.dart';
+import 'package:assignment_ddd/utils/routes/routes_imports.gr.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,10 +13,9 @@ import '../../resources/app_color.dart';
 import '../../resources/app_string.dart';
 import '../../resources/app_style.dart';
 import '../../resources/components/round_button.dart';
-import '../../utils/routes/routes_name.dart';
 import '../../utils/utils.dart';
 
-
+@RoutePage()
 class SignUpScreen extends StatefulWidget{
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -231,7 +232,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               Text(AppString.signUpFooterTitle,style: AppStyle.GreyBoldNormal14(),),
                               InkWell(
                                   onTap:  (){
-                                    Navigator.pushNamed(context, RoutesName.login);
+                                    AutoRouter.of(context).push( const SignInScreenRoute() );
                                   },
                                   child: Text(AppString.logIn,style: AppStyle.BlueAccrentBoldNormal14(),)),
                             ],
@@ -249,7 +250,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         listener: (BuildContext context, SignupState state) {
           if(state is SucessSignUpState){
             Utils.toastMessage("SignUp Sucess");
-            Navigator.pushNamed(context, RoutesName.login);
+            AutoRouter.of(context).push( const SignInScreenRoute() );
           }
           if(state is ErrorSignUpState){
             Utils.toastMessage(state.error);

@@ -2,14 +2,16 @@ import 'package:assignment_ddd/applications/bloc/login_bloc/login_bloc.dart';
 import 'package:assignment_ddd/applications/bloc/login_bloc/login_event.dart';
 import 'package:assignment_ddd/applications/bloc/login_bloc/login_state.dart';
 import 'package:assignment_ddd/domain/reposistory/auth_reposistory.dart';
+import 'package:assignment_ddd/utils/routes/routes_imports.gr.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import '../../resources/app_color.dart';
 import '../../resources/components/round_button.dart';
-import '../../utils/routes/routes_name.dart';
 import '../../utils/utils.dart';
 
+@RoutePage()
 class SignInScreen extends StatefulWidget{
   @override
   State<SignInScreen> createState() => _SignInScreenState();
@@ -169,7 +171,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   ),),
                                   InkWell(
                                       onTap:  (){
-                                        Navigator.pushNamed(context, RoutesName.singup);
+                                        AutoRouter.of(context).push( const SignUpScreenRoute() );
                                       },
                                       child: Text("Sign Up",style: TextStyle(
                                           color: Colors.blueAccent,
@@ -193,7 +195,7 @@ class _SignInScreenState extends State<SignInScreen> {
           listener: (BuildContext context, LoginState state) {
            if(state is SucessLoginState){
              Utils.toastMessage("Login Sucess");
-             Navigator.pushNamed(context, RoutesName.homeScreen);
+             AutoRouter.of(context).push( const HomeScreenRoute() );;
            }
            if(state is ErrorLoginState){
              Utils.toastMessage(state.error);
